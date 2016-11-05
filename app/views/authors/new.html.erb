@@ -1,6 +1,7 @@
 <h1>New author</h1>
-<input type="text" name="First name">
-<input type="text" name="Last name">
-<input type="url" name="Homepage">
-<button id="Create Author"></button>
-
+<form action="/authors/" method="post">
+  <input type="text" name="First name" placeholder="First name">
+  <input type="text" name="Last name" placeholder="Last name">
+  <input type="url" name="Homepage" placeholder="Homepage">
+  <button id="Create Author" type="submit">Create Author</button>
+</form>
