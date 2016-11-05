@@ -9,4 +9,11 @@ describe 'authors page' do
     expect(page).to have_field('Homepage')
     expect(page).to have_button('Create Author')
   end
+
+  it "should create a new author instance when data is submitted" do
+    @author = Author.new(first_name: "Alan", last_name: "Turing", homepage: "https://en.wikipedia.org/wiki/Alan_Turing")
+    expect(@author).not_to be_nil
+  end
+
+
 end
