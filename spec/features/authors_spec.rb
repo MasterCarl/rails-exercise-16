@@ -17,7 +17,7 @@ describe 'authors page' do
 
   it 'should return the full name' do
     @author = Author.new(first_name: "Alan", last_name: "Turing", homepage: "https://en.wikipedia.org/wiki/Alan_Turing")
-    expect(@author.name).to equal('Alan Turing')
+    expect(@author.name).to eq('Alan Turing')
   end
 
 end
