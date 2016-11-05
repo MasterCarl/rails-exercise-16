@@ -15,5 +15,9 @@ describe 'authors page' do
     expect(@author).not_to be_nil
   end
 
+  it 'should return the full name' do
+    @author = Author.new(first_name: "Alan", last_name: "Turing", homepage: "https://en.wikipedia.org/wiki/Alan_Turing")
+    expect(@author.name).to equal('Alan Turing')
+  end
 
 end
