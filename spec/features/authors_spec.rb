@@ -7,7 +7,7 @@ describe 'authors page' do
     expect(page).to have_field('First name')
     expect(page).to have_field('Last name')
     expect(page).to have_field('Homepage')
-    expect(page).to have_button('Create Author')
+    expect(page).to have_button('Create author')
   end
 
   it "should create a new author instance when data is submitted" do

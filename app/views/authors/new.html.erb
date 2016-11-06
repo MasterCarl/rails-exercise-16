@@ -1,7 +1,21 @@
 <h1>New author</h1>
-<form action="/authors/" method="post">
-  <input type="text" name="First name" placeholder="First name">
-  <input type="text" name="Last name" placeholder="Last name">
-  <input type="url" name="Homepage" placeholder="Homepage">
-  <button id="Create Author" type="submit">Create Author</button>
-</form>
+<%= form_for :author, url: authors_path do |f| %>
+    <p>
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name %>
+    </p>
+
+    <p>
+      <%= f.label :last_name %><br>
+      <%= f.text_area :last_name %>
+    </p>
+
+    <p>
+      <%= f.label :homepage %><br>
+      <%= f.text_area :homepage %>
+    </p>
+
+    <p>
+      <%= f.submit 'Create author'%>
+    </p>
+<% end %>
