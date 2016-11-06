@@ -11,7 +11,7 @@ describe 'authors page' do
     expect(page).to have_field('First name')
     expect(page).to have_field('Last name')
     expect(page).to have_field('Homepage')
-    expect(page).to have_button('Create Author')
+    expect(page).to have_button('Save Author')
   end
 
   it "should create a new author instance when data is submitted" do
@@ -27,7 +27,7 @@ describe 'authors page' do
     fill_in 'First name', :with => @author.first_name
     fill_in 'Last name', :with => @author.last_name
     fill_in 'Homepage', :with => @author.homepage
-    click_button 'Create Author'
+    click_button 'Save Author'
     Author.where(first_name: @author.first_name, last_name: @author.last_name, homepage: @author.homepage).take!
   end
 
