@@ -20,4 +20,14 @@ describe 'authors page' do
     expect(@author.name).to eq('Alan Turing')
   end
 
+  it 'should save the author if created on the new authors page' do
+    visit 'authors/new'
+    @author = build(:author)
+    fill_in 'First name', :with => @author.first_name
+    fill_in 'Last name', :with => @author.last_name
+    fill_in 'Homepage', :with => @author.homepage
+    click_button 'Create author'
+    expect(Author.find_by(first_name: @author.first_name, last_name: @author.last_name, homepage: @author.homepage)).to_not be_nil
+  end
+
 end
