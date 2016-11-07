@@ -39,7 +39,7 @@ describe 'New author page' do
   it 'should validate the input' do
     @author.first_name = nil
     @author.save()
-    expect(Author.find(@author.id)).to be_nil
+    expect(Author.exists?(@author)).to be false
   end
 end
 
