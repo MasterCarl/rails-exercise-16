@@ -56,4 +56,9 @@ describe 'Authors page' do
     visit authors_path
     expect(page).not_to be_nil
   end
+
+  it 'should have a link to the new author page' do
+    visit authors_path
+    expect(page).to have_link('Add author', href: new_author_path)
+  end
 end
