@@ -35,6 +35,12 @@ describe 'New author page' do
     @author.save
     Author.where(first_name: 'Alan', last_name: 'Turing').take!
   end
+
+  it 'should validate the input' do
+    @author.first_name = nil
+    @author.save()
+    expect(Author.find(@author.id)).to be_nil
+  end
 end
 
 describe 'Author page' do
