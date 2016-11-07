@@ -50,3 +50,10 @@ describe 'Author page' do
     expect(page).to have_text(@author.homepage)
   end
 end
+
+describe 'Authors page' do
+  it 'should render the page' do
+    visit authors_path
+    expect(page).to not_be_nil
+  end
+end
