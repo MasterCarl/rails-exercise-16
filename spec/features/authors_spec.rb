@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'authors page' do
+describe 'New author page' do
 
   before(:each) do
     @author = FactoryGirl.build(:author)
@@ -34,5 +34,19 @@ describe 'authors page' do
   it 'should be saved' do
     @author.save
     Author.where(first_name: 'Alan', last_name: 'Turing').take!
+  end
+end
+
+describe 'Author page' do
+  before(:each) do
+    @author = FactoryGirl.build(:author)
+  end
+
+  it 'should display the author\'s details' do
+    @author.save()
+    visit author_path(@author)
+    expect(page).to have_text(@author.first_name)
+    expect(page).to have_text(@author.last_name)
+    expect(page).to have_text(@author.homepage)
   end
 end
