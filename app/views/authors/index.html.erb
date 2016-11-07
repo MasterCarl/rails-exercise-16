@@ -5,6 +5,7 @@
     <th>Homepage</th>
   </tr>
 
+  <%= link_to 'Add author', new_author_path %>
   <% @authors.each do |author| %>
       <tr>
         <td><%= author.name %></td>
