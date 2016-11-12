@@ -20,3 +20,13 @@ describe 'New paper page' do
     expect { Paper.where(title: @paper.title, venue: @paper.venue).take! }.to raise_error ActiveRecord::RecordNotFound
   end
 end
+
+describe 'Paper editing page' do
+  before(:each) do
+    @paper = FactoryGirl.build(:paper)
+  end
+  it 'should render the page' do
+    @paper.save()
+    visit edit_paper_path(@paper)
+  end
+end
