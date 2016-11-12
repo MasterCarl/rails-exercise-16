@@ -38,7 +38,7 @@ class PapersController < ApplicationController
     @paper = Paper.find(params[:id])
     @paper.destroy
 
-    redirect_to authors_path
+    redirect_to papers_path
   end
 
   private
