@@ -52,6 +52,15 @@ describe 'Author edit page' do
     @author.save()
     visit edit_author_path(@author)
     expect(page).to_not be_nil
+    expect(page).to have_text(@author.first_name)
+  end
+
+  it 'should update the author' do
+    @author.save()
+    visit edit_author_path(@author)
+    fill_in 'First name', :with => 'Carl'
+    click_button 'Save Author'
+    Author.where(first_name: 'Carl', last_name: @author.last_name, homepage: @author.homepage).take!
   end
 end
 
