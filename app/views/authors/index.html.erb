@@ -1,21 +1,25 @@
 <%= javascript_include_tag 'application' %>
 <h1>Authors</h1>
-<table>
+<table class="table table-striped">
   <tr>
     <th>Name</th>
     <th>Homepage</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
-  <%= link_to 'Add author', new_author_path %>
+  <%= link_to 'Add author', new_author_path, :class => [:btn, 'btn-link'] %>
   <% @authors.each do |author| %>
       <tr>
         <td><%= author.name %></td>
         <td><%= author.homepage %></td>
-        <td><%= link_to 'Show', author_path(author) %></td>
-        <td><%= link_to 'Edit', edit_author_path(author) %></td>
+        <td><%= link_to 'Show', author_path(author), :class => [:btn, 'btn-primary'] %></td>
+        <td><%= link_to 'Edit', edit_author_path(author), :class => [:btn, 'btn-default'] %></td>
         <td><%= link_to 'Destroy', author_path(author),
                         method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
+                        data: { confirm: 'Are you sure?' },
+                        :class => [:btn, 'btn-danger'] %></td>
       </tr>
   <% end %>
 </table>

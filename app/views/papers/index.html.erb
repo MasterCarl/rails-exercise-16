@@ -1,23 +1,27 @@
 <%= javascript_include_tag 'application' %>
 <h1>Papers</h1>
-<table>
+<%= link_to 'Add paper', new_paper_path, :class => [:btn, 'btn-link'] %>
+<table class="table table-striped">
   <tr>
     <th>Title</th>
     <th>Venue</th>
     <th>Year</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
-  <%= link_to 'Add paper', new_paper_path %>
   <% @papers.each do |paper| %>
       <tr>
         <td><%= paper.title %></td>
         <td><%= paper.venue %></td>
         <td><%= paper.year %></td>
-        <td><%= link_to 'Show', paper_path(paper) %></td>
-        <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
+        <td><%= link_to 'Show', paper_path(paper), :class => [:btn, 'btn-primary'] %></td>
+        <td><%= link_to 'Edit', edit_paper_path(paper), :class => [:btn, 'btn-default'] %></td>
         <td><%= link_to 'Destroy', paper_path(paper),
                         method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
+                        data: { confirm: 'Are you sure?' },
+                :class => [:btn, 'btn-danger']%></td>
       </tr>
   <% end %>
 </table>
