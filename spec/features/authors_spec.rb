@@ -94,4 +94,12 @@ describe 'Authors page' do
     visit authors_path
     expect(page).to have_link('Add author', href: new_author_path)
   end
+
+  it 'should have a link to delete an author' do
+    @author = FactoryGirl.build(:author)
+    @author.save()
+    visit authors_path
+    click_on('Destroy')
+    expect(Author.all).to be_empty
+  end
 end
