@@ -43,6 +43,18 @@ describe 'New author page' do
   end
 end
 
+describe 'Author edit page' do
+
+  before(:each) do
+    @author = FactoryGirl.build(:author)
+  end
+  it 'should render' do
+    @author.save()
+    visit edit_author_path(@author)
+    expect(page).to_not be_nil
+  end
+end
+
 describe 'Author page' do
   before(:each) do
     @author = FactoryGirl.build(:author)
