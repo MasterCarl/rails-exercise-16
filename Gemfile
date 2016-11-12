@@ -8,6 +8,10 @@ gem 'sqlite3'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# these were missing somehow, which led to some debugging since my delete actions weren't working...
+gem 'jquery-rails'
+gem 'turbolinks'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.3'
   gem 'capybara', '~> 2.5'
