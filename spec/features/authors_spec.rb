@@ -76,6 +76,12 @@ describe 'Author page' do
     expect(page).to have_text(@author.last_name)
     expect(page).to have_text(@author.homepage)
   end
+
+  it 'should have a link to the new author page' do
+    @author.save()
+    visit author_path(@author)
+    expect(page).to have_link('Edit author', href: edit_author_path)
+  end
 end
 
 describe 'Authors page' do
