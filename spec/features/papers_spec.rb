@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'New paper page' do
 
   before(:each) do
-    @author = FactoryGirl.build(:author)
+    @paper = FactoryGirl.build(:paper)
   end
 
   it 'should render the page' do
@@ -14,4 +14,9 @@ describe 'New paper page' do
     expect(page).to have_button('Create Paper')
   end
 
+  it 'should validate the input' do
+    @paper.year = nil
+    @paper.save()
+    expect { Paper.where(title: @paper.title, venue: @paper.venue).take! }.to raise_error ActiveRecord::RecordNotFound
+  end
 end
