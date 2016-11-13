@@ -49,4 +49,12 @@ describe 'Paper page' do
     visit paper_path(@paper)
     expect(page).to have_link('Edit', href: edit_paper_path(@paper))
   end
+
+  it 'should display the authors' do
+    @paper.save()
+    visit paper_path(@paper)
+    @paper.authors.each do |author|
+      expect(page).to have_text author.last_name
+    end
+  end
 end
