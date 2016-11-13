@@ -30,3 +30,23 @@ describe 'Paper editing page' do
     visit edit_paper_path(@paper)
   end
 end
+
+describe 'Paper page' do
+  before(:each) do
+    @paper = FactoryGirl.build(:paper)
+  end
+
+  it 'should display the paper\'s details' do
+    @paper.save()
+    visit paper_path(@paper)
+    expect(page).to have_text(@paper.title)
+    expect(page).to have_text(@paper.venue)
+    expect(page).to have_text(@paper.year)
+  end
+
+  it 'should have a link to the edit paper page' do
+    @paper.save()
+    visit paper_path(@paper)
+    expect(page).to have_link('Edit', href: edit_paper_path(@paper))
+  end
+end
