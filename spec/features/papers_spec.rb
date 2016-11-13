@@ -36,6 +36,15 @@ describe 'Paper editing page' do
       expect(page).to have_select("paper_author_id_#{ number }")
     end
   end
+
+  it 'should update the authors' do
+    @author = Author.new(first_name: 'Peter', last_name: 'Plagiarist', homepage: "http://wikipedia.de/alan_turing")
+    @author.save()
+    visit edit_paper_path(@paper)
+    find(:select, 'paper_author_id_1').find(:option, @author.name).select_option
+    click_button('Update Paper')
+    expect(@paper.authors).to include(@author)
+  end
 end
 
 describe 'Paper page' do
