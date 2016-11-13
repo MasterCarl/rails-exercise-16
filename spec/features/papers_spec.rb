@@ -33,7 +33,7 @@ describe 'Paper editing page' do
     @paper.save()
     visit edit_paper_path(@paper)
     (1..5).each do |number|
-      expect(page).to have_select("paper_Author #{ number }")
+      expect(page).to have_select("paper_author_id_#{ number }")
     end
   end
 end

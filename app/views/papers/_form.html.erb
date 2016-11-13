@@ -29,16 +29,26 @@
       <%= f.text_area :year %>
     </p>
 
-    <% (1..5).each do |number| %>
-      <%= f.label "author #{number}", for: "paper_author_id_#{number}" %>
-        <%= f.collection_select(
-                :author_ids,
-                Author.all,
-                :id,
-                :name,
-                {selected: @paper.author_ids[number - 1], include_blank: '(none)'},
-                { id: "paper_Author #{number}", name: "paper[author_ids][]"}) %>
-    <% end %>
+    <p>
+      <%= f.label "Author 1", for: "paper_author_id_1"%> <br>
+      <%= f.collection_select :author_ids, Author.all, :id, :name, {selected: @paper.author_ids[0], include_blank: '(none)'}, {name: "paper[author_ids][]", id: "paper_author_id_1"}%>
+    </p>
+    <p>
+      <%= f.label "Author 2", for: "paper_author_id_2"%> <br>
+      <%= f.collection_select :author_ids, Author.all, :id, :name, {selected: @paper.author_ids[0], include_blank: '(none)'}, {name: "paper[author_ids][]", id: "paper_author_id_2"}%>
+    </p>
+    <p>
+      <%= f.label "Author 3", for: "paper_author_id_3"%> <br>
+      <%= f.collection_select :author_ids, Author.all, :id, :name, {selected: @paper.author_ids[0], include_blank: '(none)'}, {name: "paper[author_ids][]", id: "paper_author_id_3"}%>
+    </p>
+    <p>
+      <%= f.label "Author 4", for: "paper_author_id_4"%> <br>
+      <%= f.collection_select :author_ids, Author.all, :id, :name, {selected: @paper.author_ids[0], include_blank: '(none)'}, {name: "paper[author_ids][]", id: "paper_author_id_4"}%>
+    </p>
+    <p>
+      <%= f.label "Author 5", for: "paper_author_id_5"%> <br>
+      <%= f.collection_select :author_ids, Author.all, :id, :name, {selected: @paper.author_ids[0], include_blank: '(none)'}, {name: "paper[author_ids][]", id: "paper_author_id_5"}%>
+    </p>
     <p>
       <%= f.submit %>
     </p>
