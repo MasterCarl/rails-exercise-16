@@ -75,3 +75,12 @@ describe 'Paper page' do
     end
   end
 end
+
+describe 'Paper index page' do
+  it 'should filter papers by year' do
+    @harmful_paper = Paper.new(title: 'working just before the deadline considered harmful', venue: 'Near HPI', year: 2016)
+    @harmful_paper.save()
+    visit papers_path + '?year=1950'
+    expect(page).to_not have_text(@harmful_paper.title)
+  end
+end
