@@ -30,7 +30,7 @@
     </p>
 
     <% (1..5).each do |number| %>
-      <%= f.label "Author #{number}" %>
+      <%= f.label "author #{number}" %>
       <%= f.collection_select(:author_ids, Author.all, :id, :name, {selected: @paper.author_ids[number - 1], include_blank: '(none)'}, { id: "paper_author_id_#{number}"}) %>
     <% end %>
     <p>
