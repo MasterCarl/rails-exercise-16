@@ -13,15 +13,25 @@
 
 ActiveRecord::Schema.define(version: 20161113140508) do
 
-# Could not dump table "authors" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
   create_table "authors_papers", id: false, force: :cascade do |t|
     t.integer "author_id", null: false
     t.integer "paper_id",  null: false
   end
 
-# Could not dump table "papers" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table :authors do |t|
+    t.string :first_name
+    t.string :last_name
+    t.string :homepage
+    t.integer :paper_id
+    t.timestamps null: false
+  end
 
+  create_table :papers do |t|
+    t.string :title
+    t.string :venue
+    t.integer :year
+    t.timestamps null: false
+  end
+
+  add_index "papers", ["authors_id"], name: "index_papers_on_authors_id"
 end
