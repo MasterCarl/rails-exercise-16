@@ -21,7 +21,11 @@ class PapersController < ApplicationController
   end
 
   def index
-    @papers = Paper.all
+    if params[:year]
+      @papers = Paper.year_is params[:year]
+    else
+      @papers = Paper.all
+    end
   end
 
   def update
