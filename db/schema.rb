@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20161113140508) do
     t.string :venue
     t.integer :year
     t.timestamps null: false
+    t.integer "authors_id"
   end
 
   add_index "papers", ["authors_id"], name: "index_papers_on_authors_id"
