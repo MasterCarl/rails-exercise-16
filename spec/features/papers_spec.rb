@@ -41,9 +41,10 @@ describe 'Paper editing page' do
     @author = Author.new(first_name: 'Peter', last_name: 'Plagiarist', homepage: "http://wikipedia.de/alan_turing")
     @author.save()
     visit edit_paper_path(@paper)
-    select(@author.name, from: 'Author 2')
+    select(@author.name, from: 'Author 1')
     click_button('Update Paper')
-    #expect(@paper.authors).to include(@author)
+    @paper = Paper.find(@paper.id)
+    expect(@paper.authors).to include(@author)
   end
 end
 
