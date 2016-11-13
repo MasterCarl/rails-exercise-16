@@ -13,11 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20161113140508) do
 
-  create_table "authors_papers", id: false, force: :cascade do |t|
-    t.integer "author_id", null: false
-    t.integer "paper_id",  null: false
-  end
-
   create_table :authors do |t|
     t.string :first_name
     t.string :last_name
@@ -31,8 +26,12 @@ ActiveRecord::Schema.define(version: 20161113140508) do
     t.string :venue
     t.integer :year
     t.timestamps null: false
-    t.integer "authors_id"
   end
 
-  add_index "papers", ["authors_id"], name: "index_papers_on_authors_id"
+  create_table "authors_papers", force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "paper_id"
+  end
+  add_index "authors_papers", ["author_id"], name: "index_authors_papers_on_author_id"
+  add_index "authors_papers", ["paper_id"], name: "index_authors_papers_on_paper_id"
 end
