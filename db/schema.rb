@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113124451) do
+ActiveRecord::Schema.define(version: 20161113140508) do
 
 # Could not dump table "authors" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
+
+  create_table "authors_papers", id: false, force: :cascade do |t|
+    t.integer "author_id", null: false
+    t.integer "paper_id",  null: false
+  end
 
 # Could not dump table "papers" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
